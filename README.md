@@ -37,3 +37,4 @@ If a previous image needs to be restored within this 14 day period, follow the s
 5. Copy the `imageDigest` of the container you wish to re-tag as latest
 6. At the final prompt, paste the `imageDigest`
 7. The terminal will exit with the following command: `Successfully re-tagged image: imageDigest as latest`
+8. A rolling deploy will have to be done manually by stopping each of the container and waiting for them to be accepted into service

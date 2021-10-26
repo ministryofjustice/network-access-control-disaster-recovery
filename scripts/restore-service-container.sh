@@ -15,6 +15,6 @@ aws ecr describe-images \
 
 read -p "Copy and paste the imageDigest to re-tag as latest: " imageDigest
 MANIFEST=$(aws ecr batch-get-image --repository-name $repository_name --image-ids imageDigest="$imageDigest" --query images[].imageManifest --output text)
-aws ecr put-image --repository-name $repository_name --image-tag latest --image-manifest "$MANIFEST"
+aws ecr put-image --repository-name $repository_name --image-tag latest --image-manifest "$MANIFEST" > /dev/null
 echo "Successfully re-tagged image: $imageDigest as latest"
 exit
