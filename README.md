@@ -22,6 +22,7 @@ Identify the corrupt configuration file, this can be either `clients.conf` or `a
 5. Copy the `VersionId` of the config you wish to restore to
 6. At the final prompt, paste the `VersionId`
 7. The terminal will exit with the following command: `Successfully rolled back dhcp to version: VersionId`
+8. Kick off a release in the server pipeline to force a rolling deploy where the servers pull in this reverted file.
 
 ### Corrupt Container
 
