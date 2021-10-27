@@ -6,8 +6,8 @@ This repo contains an interactive script which can be used to roll back a corrup
 
 ## Prerequisites
 
-- (AWS Vault)[https://github.com/99designs/aws-vault#installing] configured for the corrupted environment
-- (jq)[https://stedolan.github.io/jq/] 
+- [AWS Vault](https://github.com/99designs/aws-vault#installing) configured for the corrupted environment
+- [jq](https://stedolan.github.io/jq/) 
 
 ## Recovering from a Disaster
 In the event that Grafana has alerted on a disaster scenario, find the correct section and follow the steps provided.
@@ -21,7 +21,7 @@ Identify the corrupt configuration file, this can be either `clients.conf` or `a
 4. You will be given an output of the last five published configs with their `VersionId` and `LastModified`
 5. Copy the `VersionId` of the config you wish to restore to
 6. At the final prompt, paste the `VersionId`
-7. The terminal will exit with the following command: `Successfully rolled back dhcp to version: VersionId`
+7. The terminal will exit with the following command: `Successfully rolled back 'authorised_macs'/'clients.conf' to version: VersionId`
 8. Kick off a release in the server pipeline to force a rolling deploy where the servers pull in this reverted file.
 
 ### Corrupt Container
