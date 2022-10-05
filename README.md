@@ -1,3 +1,5 @@
+[![repo standards badge](https://img.shields.io/badge/dynamic/json?color=blue&style=flat&logo=github&labelColor=32393F&label=MoJ%20Compliant&query=%24.result&url=https%3A%2F%2Foperations-engineering-reports.cloud-platform.service.justice.gov.uk%2Fapi%2Fv1%2Fcompliant_public_repositories%2Fnetwork-access-control-disaster-recovery)](https://operations-engineering-reports.cloud-platform.service.justice.gov.uk/public-github-repositories.html#network-access-control-disaster-recovery "Link to report")
+
 # MoJO Network Access Control disaster recovery
 
 *It is recommended to roll forward with a fix than to roll back. If a rollback is still required, follow the steps in this guide*
