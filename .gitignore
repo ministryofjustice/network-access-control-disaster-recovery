@@ -7,6 +7,6 @@
 
 /.vs
 *.pem
-.idea
+.idea*
 *.DS_Store
 *.code-workspace
