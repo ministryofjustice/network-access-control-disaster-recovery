@@ -33,7 +33,7 @@ This is to keep storage costs down. It is assumed that if an image has been live
 
 If a previous image needs to be restored within this 14 day period, follow the steps below:
 
-1. `aws-vault exec ENV_PROFILE -- make restore-service-container`
+1. `aws-vault exec mojo-{ENVIRONMENT}-cli -- make restore-service-container`
 2. At the prompt, enter the environment name (development/pre-production/production)
 3. At the second prompt, enter the corrupt service name (dns/dhcp)
 4. You will be given an output of the last five pushed containers with their `imageDigest` and `imagePushedAt`
