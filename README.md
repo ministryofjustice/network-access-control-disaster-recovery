@@ -90,11 +90,10 @@ This is to keep storage costs down. It is assumed that if an image has been live
 
 If a previous image needs to be restored within this 14 day period, follow the steps below:
 
-1. `aws-vault exec mojo-{ENVIRONMENT}-cli -- make restore-service-container`
+1. `aws-vault exec mojo-{ENVIRONMENT}-cli -- make restore-service-container` or `aws-vault exec mojo-{ENVIRONMENT}-cli -- make restore-admin-container`
 2. At the prompt, enter the environment name (development/pre-production/production)
-3. At the second prompt, enter the corrupt service name (dns/dhcp)
-4. You will be given an output of the last five pushed containers with their `imageDigest` and `imagePushedAt`
-5. Copy the `imageDigest` of the container you wish to re-tag as latest
-6. At the final prompt, paste the `imageDigest`
-7. The terminal will exit with the following command: `Successfully re-tagged image: imageDigest as latest`
-8. A rolling deploy will have to be done manually by stopping each of the container and waiting for them to be accepted into service
+3. You will be given an output of the last five pushed containers with their `imageDigest` and `imagePushedAt`
+4. Copy the `imageDigest` of the container you wish to re-tag as latest
+5. At the final prompt, paste the `imageDigest`
+6. The terminal will exit with the following command: `Successfully re-tagged image: imageDigest as latest`
+7. A rolling deploy will have to be done manually by stopping each of the container and waiting for them to be accepted into service
