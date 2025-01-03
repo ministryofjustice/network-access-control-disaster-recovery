@@ -14,6 +14,63 @@ This repo contains an interactive script which can be used to roll back a corrup
 ## Recovering from a Disaster
 In the event that Grafana has alerted on a disaster scenario, find the correct section and follow the steps provided.
 
+### Infrastructure deployment
+
+To be able to follow this guide, you need to have the following already:
+
+- [AWS Vault](https://github.com/99designs/aws-vault#installing) set up.
+- Access to [Moj AWS SSO](https://moj.awsapps.com/start#/).
+
+| :tada: TIP                                                                                                                                                                                                                                                 |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| You may configure your AWS Vault to use AWS SSO. A [step-by-step guide](https://ministryofjustice.github.io/cloud-operations/documentation/team-guide/best-practices/use-aws-sso.html#re-configure-aws-vault) can be found in our team documentation site. |
+
+## Prepare the variables
+
+1. Clone this repo to a local directory.
+
+## Initialize your Terraform
+
+```shell
+make init
+```
+
+If you hadn't already done this the first time it will clean the `.terraform dir` and create a new `.env` file with values retrieved from AWS SSM Parameter store.
+
+Then run the above command again.
+
+## Switch to an isolated workspace
+
+If you do not have a Terraform workspace created already, use the command below to create a new workspace.
+
+## Create Terraform workspace
+
+```shell
+aws-vault exec <shared-services-aws-vault-profile> -- terraform workspace new "YOUR_UNIQUE_WORKSPACE_NAME"
+```
+
+This should create a new workspace and select that new workspace at the same time.
+
+> If you already have a workspace created use the command below to select the right workspace before continue.
+>
+> ## View Terraform workspace list
+>
+> ```shell
+> aws-vault exec <shared-services-aws-vault-profile> -- terraform workspace list
+> ```
+>
+> ## Select a Terraform workspace
+>
+> ```shell
+> aws-vault exec <shared-services-aws-vault-profile> -- terraform workspace select "YOUR_WORKSPACE_NAME"
+> ```
+
+## Finally spin up your own Infra
+
+```shell
+make apply
+```
+
 ### Corrupt Config 
 Identify the corrupt configuration file, this can be either `clients.conf` or `authorised_macs`
 
