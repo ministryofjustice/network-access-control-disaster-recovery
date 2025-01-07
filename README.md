@@ -71,6 +71,16 @@ This should create a new workspace and select that new workspace at the same tim
 make apply
 ```
 
+### Restore database
+In the event that the RDS instance (mojo-production-nac-admin and/or mojo-production-nac-admin-read-rep) needs to be restored (e.g. due to data loss or instance failure), it can be restored using the daily automatic snapshots. This can be done using the AWS console or the AWS CLI. 
+
+To restore the database to a snapshot follow the steps below:
+1. Go the the RDS console in AWS
+2. Navigate to the 'System' tab of the Snapshot window.
+3. Select the latest snapshot to restore e.g. rds:mojo-production-nac-admin-2024-12-08-05-34, and click 'Restore snapshot' in the Actions dropdown.
+4. Enter the details required, such as DB identifier and security group id's.
+5. Press restore DB instance
+
 ### Corrupt Config 
 Identify the corrupt configuration file, this can be either `clients.conf` or `authorised_macs`
 
